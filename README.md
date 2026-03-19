@@ -1,178 +1,135 @@
-\# Dental Simulation System (SDF-Based)
+# 🦷 Dental Simulation System – SDF-Based Cutting
 
+A real-time **dental cutting simulation system** based on **Signed Distance Fields (SDF)** and **haptic interaction**, designed for interactive medical simulation and training.
 
+> 🎯 Goal: Simulate realistic tooth drilling with real-time volumetric updates and dynamic surface reconstruction.
 
-\## Overview
+---
 
-This project presents a real-time dental cutting simulation system based on Signed Distance Field (SDF) representation and haptic interaction.
+## 📖 Table of Contents
 
+- [Overview](#overview)
+- [Features](#features)
+- [System Architecture](#system-architecture)
+- [Demo](#demo)
+- [Environment & Requirements](#environment--requirements)
+- [How It Works](#how-it-works)
+- [Author](#author)
+- [License](#license)
 
+---
 
-The system enables physically plausible tooth drilling by updating a volumetric SDF representation in real time and reconstructing the surface dynamically using the Marching Cubes algorithm.
+## 🧠 Overview
 
+This project implements a **real-time dental simulation system** using a voxel-based **Signed Distance Field (SDF)** representation.
 
+Instead of traditional mesh deformation, the system directly modifies volumetric data to simulate material removal, enabling stable and robust cutting behavior.
 
-\---
+With this system, you can:
 
+- Perform real-time tooth drilling simulation  
+- Dynamically update geometry using SDF  
+- Reconstruct surfaces using Marching Cubes  
+- Support interactive input and haptic feedback  
 
+---
 
-\## Key Features
+## ⚙️ Features
 
+✅ SDF-based volumetric representation  
+- Voxel grid stores signed distance values  
+- Robust inside–outside queries  
 
+✅ Real-time cutting simulation  
+- Localized SDF updates simulate material removal  
+- Efficient partial updates for interactive performance  
 
-\- \*\*SDF-Based Volumetric Representation\*\*
+✅ Dynamic mesh reconstruction  
+- Surface extracted using Marching Cubes  
+- Updated in real time after each operation  
 
-&#x20; - Teeth are represented using a voxel-based signed distance field
+✅ Haptic interaction  
+- Supports force feedback devices  
+- Interaction based on SDF and triangle geometry  
 
-&#x20; - Supports robust inside–outside queries and smooth deformation
+✅ Acceleration structures  
+- BVH for efficient collision detection  
+- Optimized tool–surface interaction  
 
+---
 
+## 🏗️ System Architecture
 
-\- \*\*Real-Time Cutting Simulation\*\*
+```
+DentalSimulationSDF/
+├── Source/
+│ ├── Tooth/ # Tooth representation
+│ │ └── ToothSDFVolume # SDF volume data
+│ ├── Haptic/ # Haptic interaction system
+│ │ ├── HapticSDFManager
+│ │ └── HapticTriangleManager
+│ ├── Simulation/ # Core simulation logic
+│ │ ├── PhantomManager
+│ │ ├── Drill
+│ │ └── SnapshotSDFVolume
+│ ├── Geometry/ # Geometry processing
+│ │ ├── MarchingCubes
+│ │ └── MeshTriangle
+│ └── Acceleration/ # Spatial structures
+│ └── BVH
+├── Content/
+├── Config/
+├── DentalSimu.uproject
+└── README.md
+```
 
-&#x20; - Localized SDF updates simulate material removal
+---
 
-&#x20; - Efficient partial updates for interactive performance
+## 📽️ Demo
 
+> 📺 (Add your demo video or GIF here)
 
+Example:
+- Tooth before cutting  
+- Real-time drilling interaction  
+- Reconstructed mesh surface  
 
-\- \*\*Dynamic Mesh Reconstruction\*\*
+---
 
-&#x20; - Surface is reconstructed using the Marching Cubes algorithm
+## 💻 Environment & Requirements
 
-&#x20; - Updated in real time after each cutting operation
+| Component | Version | Notes |
+|------------|----------|-------|
+| Unreal Engine | 5.x | Required |
+| OS | Windows | Tested |
+| C++ | C++17+ | Core language |
+| IDE | Visual Studio | Recommended |
 
+---
 
+## 🔄 How It Works
 
-\- \*\*Haptic Interaction\*\*
+1. Convert tooth mesh into a voxel-based SDF representation  
+2. Detect interaction between drill and tooth surface  
+3. Apply localized SDF modification (cut operation)  
+4. Reconstruct surface using Marching Cubes  
+5. Render updated mesh in real time  
 
-&#x20; - Integration with haptic devices for force feedback
+---
 
-&#x20; - Collision handled via SDF and triangle-based structures
+## 👤 Author
 
+**Xiaoyu Zhang**
 
+🔗 GitHub: https://github.com/PanAkatsuki
 
-\- \*\*Acceleration Structures\*\*
+---
 
-&#x20; - BVH used for efficient collision detection
+## 📜 License
 
-&#x20; - Optimized interaction between tool and tooth surface
+MIT License
 
+Copyright (c) 2026 PanAkatsuki
 
-
-\---
-
-
-
-\## System Architecture
-
-
-
-The system is built on Unreal Engine and consists of:
-
-
-
-\- `ToothSDFVolume`: volumetric representation of teeth
-
-\- `PhantomManager`: manages simulation state
-
-\- `HapticSDFManager`: handles SDF-based interaction
-
-\- `MarchingCubes`: surface reconstruction module
-
-\- `BVH`: acceleration structure for collision detection
-
-
-
-\---
-
-
-
-\## How It Works
-
-
-
-1\. Convert tooth mesh into SDF (voxel grid)
-
-2\. Detect interaction between drill and tooth
-
-3\. Apply localized SDF modification (cut operation)
-
-4\. Reconstruct surface using Marching Cubes
-
-5\. Render updated geometry in real time
-
-
-
-\---
-
-
-
-\## Requirements
-
-
-
-\- Unreal Engine 5.x
-
-\- Windows
-
-\- (Optional) Haptic device
-
-
-
-\---
-
-
-
-\## How to Run
-
-
-
-1\. Clone this repository
-
-2\. Open `DentalSimu.uproject` in Unreal Engine
-
-3\. Build the project
-
-4\. Run the simulation
-
-
-
-\---
-
-
-
-\## Demo
-
-
-
-(Add GIF / video here)
-
-
-
-\---
-
-
-
-\## Applications
-
-
-
-\- Dental training simulation
-
-\- Medical simulation systems
-
-\- Real-time volumetric modeling
-
-
-
-\---
-
-
-
-\## Author
-
-
-
-Zhang Xiaoyu
-
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
