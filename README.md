@@ -19,7 +19,7 @@ A real-time **dental cutting simulation system** based on **Signed Distance Fiel
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This project implements a **real-time dental simulation system** using a voxel-based **Signed Distance Field (SDF)** representation.
 
@@ -34,7 +34,7 @@ With this system, you can:
 
 ---
 
-## ⚙️ Features
+## Features
 
 ✅ SDF-based volumetric representation  
 - Voxel grid stores signed distance values  
@@ -58,7 +58,7 @@ With this system, you can:
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 DentalSimulationSDF/
@@ -85,7 +85,7 @@ DentalSimulationSDF/
 
 ---
 
-## 📽️ Demo
+## Demo
 
 > 📺 (Add your demo video or GIF here)
 
@@ -96,7 +96,7 @@ Example:
 
 ---
 
-## 💻 Environment & Requirements
+## Environment & Requirements
 
 | Component | Version | Notes |
 |------------|----------|-------|
@@ -107,7 +107,7 @@ Example:
 
 ---
 
-## 🔄 How It Works
+## How It Works
 
 1. Convert tooth mesh into a voxel-based SDF representation  
 2. Detect interaction between drill and tooth surface  
@@ -117,7 +117,7 @@ Example:
 
 ---
 
-## 👤 Author
+## Author
 
 **Xiaoyu Zhang**
 
@@ -125,7 +125,7 @@ Example:
 
 ---
 
-## 📜 License
+## License
 
 MIT License
 
