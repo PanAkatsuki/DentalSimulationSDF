@@ -208,11 +208,6 @@ Haptic interaction is tightly integrated into the simulation loop
 Device fallback handling has not yet been implemented
 Running the project without a connected Phantom/OpenHaptics device is not supported
 
-Supported devices include:
-
-Phantom Premium
-Touch
-Touch X
 
 This project requires a supported **3D Systems Phantom / Touch** haptic device.
 
