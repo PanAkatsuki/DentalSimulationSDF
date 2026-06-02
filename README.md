@@ -208,7 +208,7 @@ This project depends on the **OpenHaptics SDK**.
 
 Download:
 
-* https://www.3dsystems.com/haptics-devices/openhaptics
+* https://support.3dsystems.com/s/article/OpenHaptics-for-Windows-Developer-Edition-v35?language=en_US&redirect=yes
 
 After installation, verify the SDK directory exists.
 
