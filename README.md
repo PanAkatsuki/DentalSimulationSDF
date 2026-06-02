@@ -1,8 +1,8 @@
 # 🦷 Dental Simulation System – SDF-Based Cutting
 
-A real-time dental cutting simulation system based on **Signed Distance Fields (SDF)** and **haptic interaction**, designed for interactive medical simulation and training.
+A real-time dental cutting simulation system based on **Signed Distance Fields (SDF)** and **haptic interaction**, designed for interactive dental training and medical simulation research.
 
-> 🎯 Goal: Simulate realistic tooth drilling with real-time volumetric updates, dynamic surface reconstruction, and force-feedback interaction.
+> 🎯 Goal: Simulate tooth drilling through volumetric SDF deformation, real-time mesh reconstruction, and haptic force feedback.
 
 ---
 
@@ -16,7 +16,9 @@ A real-time dental cutting simulation system based on **Signed Distance Fields (
 * [Installation & Setup](#installation--setup)
 * [Environment & Requirements](#environment--requirements)
 * [How It Works](#how-it-works)
+* [Performance & Evaluation](#performance--evaluation)
 * [Known Dependencies](#known-dependencies)
+* [Limitations](#limitations)
 * [Future Work](#future-work)
 * [Author](#author)
 * [License](#license)
@@ -25,20 +27,20 @@ A real-time dental cutting simulation system based on **Signed Distance Fields (
 
 # Overview
 
-This project implements a **real-time dental drilling simulation system** using a voxel-based **Signed Distance Field (SDF)** representation.
+This project implements a real-time dental drilling simulation framework using a voxel-based **Signed Distance Field (SDF)** representation.
 
-Unlike traditional mesh deformation approaches, the system directly modifies volumetric distance fields to simulate material removal. This enables stable topology changes and robust cutting behavior during interactive drilling operations.
+Unlike traditional mesh deformation methods, the system directly modifies volumetric distance fields to simulate material removal during drilling. This approach enables stable volumetric cutting behavior and efficient local deformation updates.
 
-The simulation supports:
+The system supports:
 
-* Real-time tooth drilling
+* Real-time tooth drilling simulation
 * Volumetric material removal
 * Dynamic surface reconstruction
-* Haptic force feedback
-* Efficient collision handling
-* Interactive medical simulation workflows
+* Haptic force feedback interaction
+* Spatial acceleration structures
+* Interactive beginner-level dental training
 
-The project is built with **Unreal Engine 5** and integrates **OpenHaptics** devices for force-feedback interaction.
+The project is implemented in **Unreal Engine 5** and integrates **OpenHaptics** devices for real-time force feedback.
 
 ---
 
@@ -46,41 +48,49 @@ The project is built with **Unreal Engine 5** and integrates **OpenHaptics** dev
 
 ## ✅ SDF-Based Volumetric Representation
 
-* Tooth geometry stored as voxelized Signed Distance Fields
-* Robust inside/outside queries
-* Stable topology modification during cutting
+* Tooth geometry represented using voxelized Signed Distance Fields
+* Robust inside–outside queries
+* Stable volumetric cutting behavior
 
 ---
 
 ## ✅ Real-Time Cutting Simulation
 
 * Localized SDF modification
-* Interactive drilling operations
-* Incremental updates for real-time performance
+* Drill-based volumetric material removal
+* Incremental deformation updates for interactive performance
 
 ---
 
-## ✅ Dynamic Surface Reconstruction
+## ✅ Dynamic Mesh Reconstruction
 
 * Surface extraction using Marching Cubes
-* Real-time mesh regeneration
-* Smooth geometry updates after cutting
+* Dynamic geometry updates after cutting
+* Partial reconstruction of modified regions
 
 ---
 
 ## ✅ Haptic Interaction
 
-* Integrated Phantom / Touch haptic device support
-* Force feedback based on volumetric interaction
-* Real-time drill-to-surface response
+* Phantom / Touch haptic device integration
+* Force feedback based on SDF gradient information
+* Real-time drill-to-surface interaction
 
 ---
 
-## ✅ Acceleration Structures
+## ✅ Spatial Acceleration Structures
 
-* BVH acceleration for collision queries
-* Optimized triangle interaction
-* Reduced update overhead
+* BVH acceleration for spatial queries
+* Optimized interaction handling
+* Efficient triangle-based collision support
+
+---
+
+## ✅ Real-Time Performance
+
+* Interactive real-time rendering performance
+* Localized volumetric updates for efficiency
+* Tested under multiple voxel resolutions
 
 ---
 
@@ -147,10 +157,16 @@ https://drive.google.com/file/d/1yQHWmkJB8WkXfQdYmGiesBFoSdt2YlQD/view?usp=shari
 The demo showcases:
 
 * Real-time tooth drilling
-* SDF-based volumetric cutting
+* Localized SDF deformation
 * Dynamic Marching Cubes reconstruction
-* Haptic interaction with Phantom device
-* Real-time surface updates
+* Haptic interaction using Phantom device
+* Real-time geometry updates
+
+You may also add preview GIFs or screenshots:
+
+```md
+![demo](Docs/demo.gif)
+```
 
 ---
 
@@ -166,7 +182,7 @@ git clone https://github.com/PanAkatsuki/DentalSimulationSDF.git
 
 ## 2. Install Haptic Device Drivers
 
-This project requires a supported **3D Systems Phantom / Touch haptic device**.
+This project requires a supported **3D Systems Phantom / Touch** haptic device.
 
 Download and install the official drivers:
 
@@ -184,7 +200,7 @@ After installation, verify that the device is correctly recognized by the operat
 
 ## 3. Configure the Haptic Device
 
-After installing the drivers, launch the provided device configuration utility and complete calibration.
+After installing the drivers, launch the provided configuration utility and complete calibration.
 
 Recommended checks:
 
@@ -194,7 +210,7 @@ Recommended checks:
 * Button input test
 * Force feedback test
 
-Make sure the haptic device functions correctly before launching the project.
+Ensure the haptic device functions correctly before launching the project.
 
 ---
 
@@ -208,9 +224,7 @@ https://support.3dsystems.com/s/article/OpenHaptics-for-Windows-Developer-Editio
 
 The SDK is required for compiling the project and accessing the HD/HL APIs.
 
-After installation, verify that the SDK directory exists.
-
-Example:
+Example installation paths:
 
 ```text
 C:\OpenHaptics\
@@ -271,14 +285,14 @@ Modify the path according to your local installation.
 
 # Environment & Requirements
 
-| Component     | Version         | Notes                    |
-| ------------- | --------------- | ------------------------ |
-| Unreal Engine | 5.x             | Required                 |
-| OS            | Windows         | Tested                   |
-| Language      | C++17+          | Core implementation      |
-| IDE           | Visual Studio   | Recommended              |
-| Haptic SDK    | OpenHaptics     | Required                 |
-| Device        | Phantom / Touch | Optional but recommended |
+| Component     | Version         | Notes               |
+| ------------- | --------------- | ------------------- |
+| Unreal Engine | 5.x             | Required            |
+| OS            | Windows         | Tested              |
+| Language      | C++17+          | Core implementation |
+| IDE           | Visual Studio   | Recommended         |
+| Haptic SDK    | OpenHaptics     | Required            |
+| Device        | Phantom / Touch | Recommended         |
 
 ---
 
@@ -294,7 +308,7 @@ The input tooth mesh is converted into a voxel-based Signed Distance Field repre
 
 The drill position and orientation are sampled against the SDF volume.
 
-Collision and contact information are computed in real time.
+Collision and interaction information are computed in real time.
 
 ---
 
@@ -302,23 +316,46 @@ Collision and contact information are computed in real time.
 
 Material removal is simulated by modifying local SDF values near the drill region.
 
-This directly changes the volumetric representation of the tooth.
+The cutting operation is spatially restricted to nearby voxels for efficiency.
 
 ---
 
 ## 4. Surface Reconstruction
 
-The updated SDF volume is converted back into a polygon mesh using Marching Cubes.
+The updated SDF volume is converted into a polygon mesh using Marching Cubes.
 
-Only modified regions are reconstructed for performance optimization.
+Only modified regions are reconstructed to maintain interactive performance.
 
 ---
 
 ## 5. Haptic Feedback
 
-Force feedback is computed based on drill penetration depth and contact constraints.
+Force feedback is computed using SDF gradient information and stiffness parameters.
 
-The haptic device provides real-time tactile interaction.
+The haptic device provides tactile resistance during drilling interaction.
+
+---
+
+# Performance & Evaluation
+
+The system was evaluated under different voxel resolutions.
+
+Experimental results indicate:
+
+* Stable real-time rendering performance
+* Increased initialization cost at finer voxel resolutions
+* A voxel size of `0.5f` provides a practical balance between geometric detail and computational cost
+
+A preliminary user study involving 8 participants was also conducted.
+
+Key findings include:
+
+* High usability and learnability
+* Positive feedback on haptic realism
+* Strong educational value for beginner training
+* Average overall evaluation score: **8.5 / 10**
+
+The results support the feasibility of SDF-based volumetric modeling for interactive dental simulation.
 
 ---
 
@@ -331,15 +368,28 @@ The haptic device provides real-time tactile interaction.
 
 ---
 
+# Limitations
+
+Current limitations include:
+
+* High memory usage at fine voxel resolutions
+* Simplified force feedback model
+* Limited user study sample size
+* Lack of clinical validation by professional dentists
+
+---
+
 # Future Work
 
-* GPU-based SDF updates
-* Sparse voxel data structures
-* Multi-resolution simulation
-* Improved tooth material models
-* Thermal drilling simulation
-* Fluid and debris simulation
-* Networked collaborative training
+Potential future improvements include:
+
+* GPU-accelerated SDF updates
+* Adaptive or hierarchical SDF structures
+* Material-aware force modeling
+* Expanded user studies
+* Improved calibration and interaction refinement
+* Undo/redo interaction refinement
+* Left-handed mode support
 * XR / VR integration
 
 ---
@@ -361,3 +411,5 @@ Copyright (c) 2026 Xiaoyu Zhang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files...
+
+Third-party SDKs and dependencies may be subject to their own licenses.
