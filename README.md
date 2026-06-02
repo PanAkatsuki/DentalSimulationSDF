@@ -140,17 +140,19 @@ DentalSimulationSDF/
 
 # Demo
 
-> 📺 Add demo video / GIF here
+🎥 Demo Video:
 
-Suggested demonstrations:
+https://drive.google.com/file/d/1yQHWmkJB8WkXfQdYmGiesBFoSdt2YlQD/view?usp=sharing
 
-* Tooth before cutting
-* Real-time drilling interaction
-* Surface reconstruction updates
-* Haptic device interaction
-* Volumetric material removal
+The demo showcases:
 
-Example:
+* Real-time tooth drilling
+* SDF-based volumetric cutting
+* Dynamic Marching Cubes reconstruction
+* Haptic interaction with Phantom device
+* Real-time surface updates
+
+You may also add preview GIFs or screenshots:
 
 ```md
 ![demo](Docs/demo.gif)
@@ -174,7 +176,7 @@ This project requires a supported **3D Systems Phantom / Touch haptic device**.
 
 Download and install the official drivers:
 
-* https://support.3dsystems.com/s/article/Haptic-Device-Drivers?language=en_US
+https://support.3dsystems.com/s/article/Haptic-Device-Drivers?language=en_US
 
 Supported devices include:
 
@@ -182,7 +184,7 @@ Supported devices include:
 * Touch
 * Touch X
 
-After installation, verify that the device is recognized correctly by the operating system.
+After installation, verify that the device is correctly recognized by the operating system.
 
 ---
 
@@ -198,7 +200,7 @@ Recommended checks:
 * Button input test
 * Force feedback test
 
-Make sure the haptic device works correctly before launching the project.
+Make sure the haptic device functions correctly before launching the project.
 
 ---
 
@@ -206,11 +208,13 @@ Make sure the haptic device works correctly before launching the project.
 
 This project depends on the **OpenHaptics SDK**.
 
-Download:
+Download the SDK here:
 
-* https://support.3dsystems.com/s/article/OpenHaptics-for-Windows-Developer-Edition-v35?language=en_US&redirect=yes
+https://support.3dsystems.com/s/article/OpenHaptics-for-Windows-Developer-Edition-v35?language=en_US&redirect=yes
 
-After installation, verify the SDK directory exists.
+The SDK is required for compiling the project and accessing the HD/HL APIs.
+
+After installation, verify that the SDK directory exists.
 
 Example:
 
@@ -224,7 +228,7 @@ or
 C:\Program Files\3D Systems\OpenHaptics\
 ```
 
-The SDK should contain folders similar to:
+The SDK should contain directories similar to:
 
 ```text
 include/
@@ -264,10 +268,10 @@ Modify the path according to your local installation.
 
 1. Open `DentalSimu.uproject`
 2. Generate Visual Studio project files
-3. Build in Visual Studio
+3. Build the project in Visual Studio
 4. Launch Unreal Engine 5
-5. Connect the haptic device
-6. Start simulation
+5. Connect and enable the haptic device
+6. Start the simulation
 
 ---
 
