@@ -121,25 +121,43 @@ Haptic Force Feedback
 ```text
 DentalSimulationSDF/
 ├── Source/
+│   └── DentalSimu/
 │
-├── Tooth/                     # Tooth representation
-│   └── ToothSDFVolume
-│
-├── Haptic/                    # Haptic interaction system
-│   ├── HapticSDFManager
-│   └── HapticTriangleManager
-│
-├── Simulation/                # Core simulation logic
-│   ├── PhantomManager
-│   ├── Drill
-│   └── SnapshotSDFVolume
-│
-├── Geometry/                  # Geometry processing
-│   ├── MarchingCubes
-│   └── MeshTriangle
-│
-├── Acceleration/              # Spatial acceleration structures
-│   └── BVH
+│       ├── Actor/                        # Scene actors and simulation entities
+│       │   ├── Arch                      # Combined dental arch
+│       │   ├── Drill                     # Dental drill actor
+│       │   ├── Gum                       # Gum representation
+│       │   └── Tooth                     # Tooth representation
+│       │
+│       ├── BVH/                          # Spatial acceleration structures
+│       │   └── BVH
+│       │
+│       ├── EnumType/                     # Enumerations and type definitions
+│       │   └── MeshType
+│       │
+│       ├── Haptic/                       # Haptic interaction system
+│       │   ├── HapticSDFManager
+│       │   └── HapticTriangleManager
+│       │
+│       ├── Phantom/                      # Phantom/OpenHaptics device integration
+│       │   ├── PhantomManager
+│       │   └── PhantomSubsystem
+│       │
+│       ├── StructType/                   # Core data structures
+│       │   ├── BVHNode
+│       │   ├── MeshTriangle
+│       │   ├── SnapshotMeshTriangles
+│       │   ├── SnapshotSDFVolume
+│       │   ├── ToothMeshData
+│       │   ├── ToothProceduralMeshData
+│       │   └── ToothSDFVolume
+│       │
+│       ├── Table/                        # Lookup tables
+│       │   └── MarchingCubesTables
+│       │
+│       └── Test/                         # Experimental / debugging utilities
+│           ├── HapticTriangle
+│           └── HapticBox
 │
 ├── Content/
 ├── Config/
