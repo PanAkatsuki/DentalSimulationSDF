@@ -162,12 +162,6 @@ The demo showcases:
 * Haptic interaction using Phantom device
 * Real-time geometry updates
 
-You may also add preview GIFs or screenshots:
-
-```md
-![demo](Docs/demo.gif)
-```
-
 ---
 
 # Installation & Setup
