@@ -262,25 +262,82 @@ utilities/
 
 Edit the corresponding `.Build.cs` file and configure the OpenHaptics SDK path.
 
-Example:
+Example configuration:
 
 ```cpp
-string OpenHapticsPath = "C:/OpenHaptics";
+using System.IO;
+using UnrealBuildTool;
 
-PublicIncludePaths.Add(
-    Path.Combine(OpenHapticsPath, "include")
-);
+public class DentalSimu : ModuleRules
+{
+    public DentalSimu(ReadOnlyTargetRules Target) : base(Target)
+    {
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-PublicAdditionalLibraries.Add(
-    Path.Combine(OpenHapticsPath, "lib", "HD.lib")
-);
+        PublicDependencyModuleNames.AddRange(
+            new string[]
+            {
+                "Core",
+                "CoreUObject",
+                "Engine",
+                "InputCore",
+                "ProceduralMeshComponent"
+            }
+        );
 
-PublicAdditionalLibraries.Add(
-    Path.Combine(OpenHapticsPath, "lib", "HL.lib")
-);
+        // OpenHaptics SDK path
+        string PhantomSDKPath = "C:\\OpenHaptics\\Developer\\3.5.0";
+
+        // Include paths
+        PublicIncludePaths.Add(
+            Path.Combine(PhantomSDKPath, "include")
+        );
+
+        PublicIncludePaths.Add(
+            Path.Combine(PhantomSDKPath, "utilities\\include")
+        );
+
+        // HD library
+        PublicAdditionalLibraries.Add(
+            Path.Combine(PhantomSDKPath, "lib\\x64\\Release\\hd.lib")
+        );
+
+        PublicDelayLoadDLLs.Add("hd.dll");
+
+        // HL library
+        PublicAdditionalLibraries.Add(
+            Path.Combine(PhantomSDKPath, "lib\\x64\\Release\\hl.lib")
+        );
+
+        PublicDelayLoadDLLs.Add("hl.dll");
+
+        // HDU utility library
+        PublicAdditionalLibraries.Add(
+            Path.Combine(PhantomSDKPath, "utilities\\lib\\x64\\Release\\hdu.lib")
+        );
+    }
+}
 ```
 
-Modify the path according to your local installation.
+Modify the SDK path according to your local installation directory.
+
+### Runtime DLL Requirements
+
+Make sure the required OpenHaptics DLL files are accessible at runtime.
+
+Depending on your system configuration, you may need to:
+
+* Add the OpenHaptics SDK `bin` directory to the system `PATH`
+* Or copy the required DLL files next to the Unreal executable
+
+Common required DLLs include:
+
+```text
+hd.dll
+hl.dll
+```
+
+If the DLLs are not found at runtime, Unreal Engine may fail to launch the project correctly.
 
 ---
 
