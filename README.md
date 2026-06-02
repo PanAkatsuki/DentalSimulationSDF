@@ -204,10 +204,9 @@ If no compatible device is connected, the application may fail to launch or cras
 
 At the current stage of development:
 
-Haptic interaction is tightly integrated into the simulation loop
-Device fallback handling has not yet been implemented
-Running the project without a connected Phantom/OpenHaptics device is not supported
-
+* Haptic interaction is tightly integrated into the simulation loop
+* Device fallback handling has not yet been implemented
+* Running the project without a connected Phantom/OpenHaptics device is not supported
 
 This project requires a supported **3D Systems Phantom / Touch** haptic device.
 
