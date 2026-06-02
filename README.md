@@ -194,6 +194,26 @@ git clone https://github.com/PanAkatsuki/DentalSimulationSDF.git
 
 ## 2. Install Haptic Device Drivers
 
+⚠️ Hardware Requirement
+
+A compatible Phantom / Touch haptic device is currently required to run the project.
+
+The current implementation assumes that a valid haptic device is connected and successfully initialized during startup.
+
+If no compatible device is connected, the application may fail to launch or crash due to missing device initialization and null-pointer access in the haptic subsystem.
+
+At the current stage of development:
+
+Haptic interaction is tightly integrated into the simulation loop
+Device fallback handling has not yet been implemented
+Running the project without a connected Phantom/OpenHaptics device is not supported
+
+Supported devices include:
+
+Phantom Premium
+Touch
+Touch X
+
 This project requires a supported **3D Systems Phantom / Touch** haptic device.
 
 Download and install the official drivers:
@@ -361,7 +381,7 @@ If the DLLs are not found at runtime, Unreal Engine may fail to launch the proje
 | Language      | C++17+          | Core implementation |
 | IDE           | Visual Studio   | Recommended         |
 | Haptic SDK    | OpenHaptics     | Required            |
-| Device        | Phantom / Touch | Recommended         |
+| Device        | Phantom / Touch | Required            |
 
 ---
 
